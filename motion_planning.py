@@ -178,8 +178,6 @@ class MotionPlanning(Drone):
         
         path=prune_path(path)
 
-        # TODO (if you're feeling ambitious): Try a different approach altogether!
-
         # Convert path to waypoints
         waypoints = [[p[0] + north_offset, p[1] + east_offset, TARGET_ALTITUDE, 0] for p in path]
         # Set self.waypoints

@@ -1,6 +1,6 @@
 
 # Project: 3D Motion Planning
-![Quad Image](./misc/enroute.png)
+![Quad Image](./pics/enroute.png)
 
 ### Step 1: Download the Simulator
 This is a new simulator environment!  
@@ -59,7 +59,7 @@ The planner performs path planning in the method plan_path$$) with following ste
     self.send_waypoints()
     ``
 
-![Motion Planning Starter](motion_planning1.png)
+![Motion Planning Starter](pics/motion_planning1.png)
 
 ### Implementing Your Path Planning Algorithm
 
@@ -143,7 +143,7 @@ Check obstacles for diagonal motions.
     if (x + 1 > n or y + 1 > m) or grid[x + 1, y + 1] == 1:
         valid_actions.remove(Action.SOUTH_EAST)
 ```
-![Diagonal Motion](diagonal_motion.png)
+![Diagonal Motion](pics/diagonal_motion.png)
 
 
 #### 6. Cull waypoints
@@ -177,7 +177,7 @@ And in `motion_planning.py`, following code was added:
 
     pruned_path = prune_path(path)
 
-![Prunned Path](prunned_path.png)
+![Prunned Path](pics/prunned_path.png)
 
 
 ### Execute the flight
