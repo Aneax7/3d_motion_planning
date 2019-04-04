@@ -1,11 +1,16 @@
 
-## Project: 3D Motion Planning
+# Project: 3D Motion Planning
 ![Quad Image](./misc/enroute.png)
 
----
+### Step 1: Download the Simulator
+This is a new simulator environment!  
 
-### Explaination of the Starter Code
+Download the Motion-Planning simulator for this project that's appropriate for your operating system from the [simulator releases respository](https://github.com/udacity/FCND-Simulator-Releases/releases).
 
+### Step 2: Set up your Python Environment
+If you haven't already, set up your Python environment and get all the relevant packages installed using Anaconda following instructions in [this repository](https://github.com/udacity/FCND-Term1-Starter-Kit)
+
+## Explaination of the Starter Code
 
 #### 1. Explain the functionality of what's provided in `motion_planning.py` and `planning_utils.py`
 These scripts contain a basic planning implementation that includes commands to fly a quadcopter in a path. `motion_planning.py` is the modified version of `backyard_flyer.py`. `backyard_flyer.py` consists of commands to make quadcopter start, fly to the sets of waypoints as defined by the user and land.
@@ -178,3 +183,25 @@ And in `motion_planning.py`, following code was added:
 ### Execute the flight
 #### 1. Does it work?
 It works!
+
+# To Be Done
+
+## Extra Challenges
+The submission requirements for this project are laid out in the rubric, but if you feel inspired to take your project above and beyond, or maybe even keep working on it after you submit, then here are some suggestions for interesting things to try.
+
+### Try flying more complex trajectories
+In this project, things are set up nicely to fly right-angled trajectories, where you ascend to a particular altitude, fly a path at that fixed altitude, then land vertically. However, you have the capability to send 3D waypoints and in principle you could fly any trajectory you like. Rather than simply setting a target altitude, try sending altitude with each waypoint and set your goal location on top of a building!
+
+### Adjust your deadbands
+Adjust the size of the deadbands around your waypoints, and even try making deadbands a function of velocity. To do this, you can simply modify the logic in the `local_position_callback()` function.
+
+### Add heading commands to your waypoints
+In the default setup, you're sending waypoints made up of NED position and heading with heading set to 0 in the default setup. Try passing a unique heading with each waypoint. If, for example, you want to send a heading to point to the next waypoint, it might look like this:
+
+```python
+# Define two waypoints with heading = 0 for both
+wp1 = [n1, e1, a1, 0]
+wp2 = [n2, e2, a2, 0]
+# Set heading of wp2 based on relative position to wp1
+wp2[3] = np.arctan2((wp2[1]-wp1[1]), (wp2[0]-wp1[0]))
+```
